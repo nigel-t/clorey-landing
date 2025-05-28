@@ -118,6 +118,47 @@
       }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    try {
+      const response = await fetch('https://formspree.io/f/xgvkgrba', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (response.ok) {
+        // Trigger confetti
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+
+        // Update success message text and show it
+        const successMessage = document.getElementById('successMessage');
+        successMessage.textContent = "Awesome! We can't wait to get started. We'll get back to you shortly.";
+        successMessage.style.display = 'block';
+
+        // Hide the form inputs and button for a cleaner look
+        this.querySelectorAll('input, textarea, button').forEach(el => el.style.display = 'none');
+      } else {
+        alert('There was an issue sending your message. Please try again later.');
+      }
+    } catch (error) {
+      alert('Error: ' + error.message);
+    }
+  });
+</script>
 </head>
 <body>
   <section class="hero">
