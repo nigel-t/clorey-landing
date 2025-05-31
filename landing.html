@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clorey - Your Technical Co-Founder</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'clorey-primary': '#6366f1',
+                        'clorey-secondary': '#8b5cf6',
+                        'dark-bg': '#0a0a0a',
+                        'dark-surface': '#111111',
+                        'dark-border': '#1f1f1f',
+                        'dark-text': '#ffffff',
+                        'dark-text-secondary': '#a1a1aa',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+        
+        .blur-backdrop {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg text-dark-text overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-bg/80 blur-backdrop border-b border-dark-border">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 animate-fade-in">
+                    <div class="w-8 h-8 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-lg glow flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">C</span>
+                    </div>
+                    <span class="text-xl font-semibold text-dark-text">Clorey</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 animate-fade-in">
+                    <a href="#features" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">Features</a>
+                    <a href="#how-it-works" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">How it Works</a>
+                    <a href="#pricing" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">Pricing</a>
+                    <a href="#contact" class="bg-clorey-primary hover:bg-clorey-primary/90 text-white px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105">Get Started</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 sm:px-8 pt-16">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-clorey-primary/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-clorey-secondary/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+        </div>
+        
+        <div class="relative max-w-6xl mx-auto text-center">
+            <!-- Main Headline -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 animate-slide-up">
+                <span class="gradient-text">Clorey</span> is the 
+                <br class="hidden sm:block">
+                <span class="text-dark-text">technical co-founder</span>
+                <br class="hidden sm:block">
+                for your <span class="gradient-text">idea-stage startup</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-dark-text-secondary mb-12 max-w-4xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                You&apos;ve got the idea. We&apos;ll build the product. Fast, founder-quality MVPs 
+                built by product-obsessed humans, accelerated by AI.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s;">
+                <button class="bg-clorey-primary hover:bg-clorey-primary/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover:scale-105 glow">
+                    Start Building Today
+                </button>
+                <button class="border border-dark-border text-dark-text hover:bg-dark-surface px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover:scale-105">
+                    Watch Demo
+                </button>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="mt-16 animate-slide-up" style="animation-delay: 0.6s;">
+                <p class="text-dark-text-secondary text-sm mb-6">Trusted by ambitious founders</p>
+                <div class="flex items-center justify-center space-x-8 opacity-50">
+                    <!-- Placeholder for logos -->
+                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
+                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
+                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
+                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section id="features" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    From Zero to <span class="gradient-text">MVP, Fast</span>
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-6 text-xl text-dark-text-secondary animate-slide-up" style="animation-delay: 0.2s;">
+                    <p>Clorey builds working products for ambitious founders at the idea stage.</p>
+                    <p>We don't do proposals, hourly billing, or bloated teams.</p>
+                    <p>We partner with you to deliver a focused, functional MVP—ready for customers, demos, and investors.</p>
+                </div>
+                <p class="text-2xl md:text-3xl font-semibold text-dark-text mt-12 animate-slide-up" style="animation-delay: 0.4s;">
+                    We're not an agency. We're your <span class="gradient-text">founding team in a box</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Clorey Section -->
+    <section class="py-24 px-6 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    Why <span class="gradient-text">Clorey</span>?
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up">
+                    <div class="text-2xl mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-4">Product-first, not agency-first</h3>
+                    <p class="text-dark-text-secondary">We don&apos;t hand you off to project managers. We&apos;re founders, too. We build things we&apos;d want to use.</p>
+                </div>
+                
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="text-2xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">Ridiculously fast execution</h3>
+                    <p class="text-dark-text-secondary">We combine AI tooling with startup muscle memory to ship MVPs in weeks, not quarters.</p>
+                </div>
+                
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-2xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-4">Built by startup veterans</h3>
+                    <p class="text-dark-text-secondary">Your MVP is built by people who've raised capital, hired teams, and launched real companies—not just coded to spec.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    How It <span class="gradient-text">Works</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-slide-up">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Share your vision</h3>
+                    <p class="text-dark-text-secondary">You tell us what you're trying to build—your idea, your goals, and what needs to be real to prove the concept.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">2</div>
+                    <h3 class="text-xl font-semibold mb-4">We scope your MVP</h3>
+                    <p class="text-dark-text-secondary">We distill the core of your idea into a lean, focused build. Enough to test, iterate, sell, and fundraise.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">3</div>
+                    <h3 class="text-xl font-semibold mb-4">We build—fast</h3>
+                    <p class="text-dark-text-secondary">We move fast and communicate like co-founders. Continuous check-ins and rapid iteration.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">4</div>
+                    <h3 class="text-xl font-semibold mb-4">You ship</h3>
+                    <p class="text-dark-text-secondary">In a few weeks, you have a working product. Put it in front of users, investors, or future teammates—your call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We're About Section -->
+    <section class="py-24 px-6 sm:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-slide-up">
+                What We're <span class="gradient-text">About</span>
+            </h2>
+            <div class="space-y-6 text-xl text-dark-text-secondary animate-slide-up" style="animation-delay: 0.2s;">
+                <p>We believe MVPs should be fast, functional, and <em>real</em>.</p>
+                <p>Most great ideas die in the "who's going to build it?" phase. We started Clorey so that never happens again.</p>
+                <p>We're builders. We've shipped venture-backed products. We've been CTOs and CEOs. We know what matters and what doesn't at the earliest stage—and we've built Clorey to obsess over that.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What You Get Section -->
+    <section class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    What You <span class="gradient-text">Get</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up">
+                    <div class="w-12 h-12 bg-clorey-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="text-clorey-primary text-xl">⏱️</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Functional MVP in 4–6 weeks</h3>
+                </div>
+                
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-clorey-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="text-clorey-primary text-xl">💻</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Production-grade code and UI</h3>
+                </div>
+                
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-clorey-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="text-clorey-primary text-xl">🚀</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Reusable codebase for future growth</h3>
+                </div>
+                
+                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="w-12 h-12 bg-clorey-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <span class="text-clorey-primary text-xl">📋</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Full handoff and documentation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Who This Is For Section -->
+    <section class="py-24 px-6 sm:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    Who This Is <span class="gradient-text">For</span>
+                </h2>
+                <p class="text-xl text-dark-text-secondary mb-8 animate-slide-up" style="animation-delay: 0.2s;">Clorey is for:</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                        <span class="text-green-400 text-sm">✅</span>
+                    </div>
+                    <p class="text-lg text-dark-text-secondary">Founders raising a pre-seed or angel round</p>
+                </div>
+                
+                <div class="flex items-start space-x-4 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                        <span class="text-green-400 text-sm">✅</span>
+                    </div>
+                    <p class="text-lg text-dark-text-secondary">Serial entrepreneurs with strong networks but no in-house tech team</p>
+                </div>
+                
+                <div class="flex items-start space-x-4 animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                        <span class="text-green-400 text-sm">✅</span>
+                    </div>
+                    <p class="text-lg text-dark-text-secondary">Operators with a proven playbook and a fresh idea</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ready to Build Section -->
+    <section id="contact" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                Ready to <span class="gradient-text">Build</span>?
+            </h2>
+            <p class="text-xl text-dark-text-secondary mb-12 animate-slide-up" style="animation-delay: 0.2s;">
+                Let's talk. We'll give you a clear scope, fixed timeline, and honest opinion—fast.
+            </p>
+            
+            <!-- Contact form placeholder -->
+            <div class="bg-dark-surface border border-dark-border rounded-xl p-8 max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+                <p class="text-dark-text-secondary mb-6">Contact form will be added here</p>
+                <p class="text-sm text-dark-text-secondary opacity-75">
+                    (Include a short form: name, email, a few sentences about the idea, preferred timeline)
+                </p>
+                
+                <button class="bg-clorey-primary hover:bg-clorey-primary/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover:scale-105 glow mt-8">
+                    Contact Us →
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border py-12 px-6 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-6 h-6 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xs">C</span>
+                    </div>
+                    <span class="text-lg font-semibold">Clorey</span>
+                </div>
+                <p class="text-dark-text-secondary text-sm">
+                    © 2024 Clorey. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Smooth scrolling script -->
+    <script>
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html> 
