@@ -30,6 +30,10 @@
                         'fade-in': 'fadeIn 0.8s ease-out',
                         'slide-up': 'slideUp 0.8s ease-out',
                         'float': 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 2s ease-in-out infinite',
+                        'rotate-slow': 'rotate 12s linear infinite',
+                        'drift': 'drift 8s ease-in-out infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -43,6 +47,11 @@
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        drift: {
+                            '0%, 100%': { transform: 'translateX(0px) translateY(0px)' },
+                            '33%': { transform: 'translateX(20px) translateY(-10px)' },
+                            '66%': { transform: 'translateX(-10px) translateY(10px)' },
                         }
                     }
                 }
@@ -68,9 +77,65 @@
             box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
         }
         
+        .glow-strong {
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.25);
+        }
+        
         .blur-backdrop {
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .bg-dots {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .gradient-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+        }
+        
+        .gradient-surface {
+            background: linear-gradient(135deg, #111111 0%, #151515 50%, #111111 100%);
+        }
+        
+        .card-premium {
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.8) 0%, rgba(25, 25, 25, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        
+        .card-premium:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(99, 102, 241, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 
+                0 4px 15px rgba(99, 102, 241, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-premium:hover {
+            box-shadow: 
+                0 6px 25px rgba(99, 102, 241, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
         
         html {
@@ -84,8 +149,14 @@
 </head>
 
 <body class="bg-dark-bg text-dark-text overflow-x-hidden">
+    <!-- Enhanced Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-dark-bg/80 blur-backdrop border-b border-dark-border">
+    <nav class="fixed top-0 w-full z-50 bg-dark-bg/90 blur-backdrop border-b border-dark-border/50">
         <div class="max-w-7xl mx-auto px-6 sm:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
@@ -98,10 +169,10 @@
                 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8 animate-fade-in">
-                    <a href="#why-clorey" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">Why Clorey</a>
-                    <a href="#how-it-works" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">How it Works</a>
-                    <a href="#who-its-for" class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">Who It's For</a>
-                    <a href="#contact" class="bg-clorey-primary hover:bg-clorey-primary/90 text-white px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105">Get Started</a>
+                    <a href="#why-clorey" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">Why Clorey</a>
+                    <a href="#how-it-works" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">How it Works</a>
+                    <a href="#who-its-for" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">Who It's For</a>
+                    <a href="#contact" class="btn-premium text-white px-4 py-2 rounded-lg transition-all duration-300">Get Started</a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
@@ -118,10 +189,11 @@
     
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center px-6 sm:px-8 pt-16">
-        <!-- Background Elements -->
+        <!-- Enhanced Background Elements -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-clorey-primary/10 rounded-full blur-3xl animate-float"></div>
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-clorey-secondary/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-2 h-32 bg-gradient-to-b from-clorey-primary/5 to-transparent transform -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
         </div>
         
         <div class="relative max-w-6xl mx-auto text-center">
@@ -142,26 +214,15 @@
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s;">
-                <a href="#contact" class="bg-clorey-primary hover:bg-clorey-primary/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover:scale-105 glow">
+                <a href="#contact" class="btn-premium text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300">
                     Start Building Today
                 </a>
             </div>
-            
-            <!-- Trust Indicators -->
-            <!-- <div class="mt-16 animate-slide-up" style="animation-delay: 0.6s;">
-                <p class="text-dark-text-secondary text-sm mb-6">Trusted by ambitious founders</p>
-                <div class="flex items-center justify-center space-x-8 opacity-50">
-                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
-                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
-                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
-                    <div class="w-20 h-8 bg-dark-surface rounded border border-dark-border"></div>
-                </div>
-            </div> -->
         </div>
     </section>
     
     <!-- What We Do Section -->
-    <section class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+    <section class="py-24 px-6 sm:px-8 gradient-surface">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
@@ -172,15 +233,17 @@
                     <p>We don't do proposals, hourly billing, or bloated teams.</p>
                     <p>We partner with you to deliver a focused, functional MVP—ready for customers, demos, and investors.</p>
                 </div>
-                <p class="text-2xl md:text-3xl font-semibold text-dark-text mt-12 animate-slide-up" style="animation-delay: 0.4s;">
-                    We're not an agency. We're your <span class="gradient-text">technical co-founder</span>.
-                </p>
+                <div class="relative mt-12 animate-slide-up" style="animation-delay: 0.4s;">
+                    <p class="text-2xl md:text-3xl font-semibold text-dark-text">
+                        We're not an agency. We're your <span class="gradient-text">technical co-founder</span>.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Why Clorey Section -->
-    <section id="why-clorey" class="py-24 px-6 sm:px-8">
+    <section id="why-clorey" class="py-24 px-6 sm:px-8 gradient-section bg-dots">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
@@ -189,25 +252,25 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up">
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12">
                     <div class="text-2xl mb-4">💡</div>
                     <h3 class="text-xl font-semibold mb-4">Product-first, not agency-first</h3>
                     <p class="text-dark-text-secondary">We don&apos;t hand you off to project managers. We&apos;re founders, too. We build things we&apos;d want to use.</p>
                 </div>
                 
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.1s;">
                     <div class="text-2xl mb-4">⚡</div>
                     <h3 class="text-xl font-semibold mb-4">Ridiculously fast execution</h3>
                     <p class="text-dark-text-secondary">We combine AI tooling with startup muscle memory to ship MVPs in weeks, not quarters.</p>
                 </div>
                 
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.2s;">
                     <div class="text-2xl mb-4">🧠</div>
                     <h3 class="text-xl font-semibold mb-4">Built by startup veterans</h3>
                     <p class="text-dark-text-secondary">Your MVP is built by people who've raised capital, hired teams, and launched real companies—not just coded to spec.</p>
                 </div>
                 
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.3s;">
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.3s;">
                     <div class="text-2xl mb-4">🎨</div>
                     <h3 class="text-xl font-semibold mb-4">Production-grade code and UI</h3>
                     <p class="text-dark-text-secondary">No prototypes or throwaway code. We build real products with clean architecture and polished interfaces that scale with your business.</p>
@@ -217,7 +280,7 @@
     </section>
     
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+    <section id="how-it-works" class="py-24 px-6 sm:px-8 gradient-surface">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
@@ -227,25 +290,25 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="text-center animate-slide-up">
-                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">1</div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">1</div>
                     <h3 class="text-xl font-semibold mb-4">Share your vision</h3>
                     <p class="text-dark-text-secondary">You tell us what you're trying to build—your idea, your goals, and what needs to be real to prove the concept.</p>
                 </div>
                 
                 <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">2</div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">2</div>
                     <h3 class="text-xl font-semibold mb-4">We scope your MVP</h3>
                     <p class="text-dark-text-secondary">We distill the core of your idea into a lean, focused build. Enough to test, iterate, sell, and fundraise.</p>
                 </div>
                 
                 <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">3</div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">3</div>
                     <h3 class="text-xl font-semibold mb-4">We build—fast</h3>
                     <p class="text-dark-text-secondary">We move fast and communicate like co-founders. Continuous check-ins and rapid iteration.</p>
                 </div>
                 
                 <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
-                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow">4</div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">4</div>
                     <h3 class="text-xl font-semibold mb-4">You ship</h3>
                     <p class="text-dark-text-secondary">In a few weeks, you have a working product. Put it in front of users, investors, or future teammates—your call.</p>
                 </div>
@@ -254,7 +317,7 @@
     </section>
     
     <!-- What We're About Section -->
-    <section class="py-24 px-6 sm:px-8">
+    <section class="py-24 px-6 sm:px-8 gradient-section">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-slide-up">
                 What We're <span class="gradient-text">About</span>
@@ -262,12 +325,12 @@
             <div class="space-y-6 text-xl text-dark-text-secondary animate-slide-up" style="animation-delay: 0.2s;">
                 <p>We believe MVPs should be fast, functional, and <em>real</em>.</p>
                 <p>Most great ideas die in the "who's going to build it?" phase. We started Clorey so that never happens again.</p>
-                <p>We're builders. We've shipped venture-backed products. We've been CTOs and CEOs. We know what matters and what doesn't at the earliest stage—and we've built Clorey to obsess over that.</p>
+                <p>We've shipped venture-backed products. We've been CTOs and CEOs. We know what matters and what doesn't at the earliest stage—and we've built Clorey to obsess over that.</p>
             </div>
         </div>
     </section>
    
-    <section id="who-its-for" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+    <section id="who-its-for" class="py-24 px-6 sm:px-8 gradient-surface bg-dots">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
@@ -276,22 +339,22 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
                         <span class="text-green-400 text-xl">🚀</span>
                     </div>
                     <h3 class="text-lg font-semibold">Founders raising a pre-seed or angel round</h3>
                 </div>
                 
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
                         <span class="text-green-400 text-xl">🌐</span>
                     </div>
                     <h3 class="text-lg font-semibold">Serial entrepreneurs with strong networks but no in-house tech team</h3>
                 </div>
                 
-                <div class="bg-dark-surface border border-dark-border rounded-xl p-8 text-center hover:border-clorey-primary/50 transition-all duration-300 hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
                         <span class="text-green-400 text-xl">💡</span>
                     </div>
                     <h3 class="text-lg font-semibold">Operators with a proven playbook and a fresh idea</h3>
@@ -301,7 +364,7 @@
     </section>
     
     <!-- Ready to Build Section -->
-    <section id="contact" class="py-24 px-6 sm:px-8 bg-dark-surface/50">
+    <section id="contact" class="py-24 px-6 sm:px-8 gradient-section">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
                 Ready to <span class="gradient-text">Build</span>?
@@ -320,7 +383,7 @@
                             id="name" 
                             name="name" 
                             required 
-                            class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border"
                             placeholder="Your name"
                         />
                     </div>
@@ -332,7 +395,7 @@
                             id="email" 
                             name="email" 
                             required 
-                            class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-colors duration-200"
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border"
                             placeholder="your@email.com"
                         />
                     </div>
@@ -344,20 +407,20 @@
                             name="message" 
                             rows="6" 
                             required 
-                            class="w-full px-4 py-3 bg-dark-surface border border-dark-border rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-colors duration-200 resize-none"
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border resize-none"
                             placeholder="Tell us about your idea, timeline, and what you're hoping to build..."
                         ></textarea>
                     </div>
 
                     <button 
                         type="submit" 
-                        class="w-full bg-clorey-primary hover:bg-clorey-primary/90 text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-200 hover:scale-105 glow"
+                        class="w-full btn-premium text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300"
                     >
                         Get In Touch
                     </button>
                     
                     <div 
-                        class="success-message bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-green-400 text-center" 
+                        class="success-message bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-green-400 text-center backdrop-blur" 
                         id="successMessage" 
                         style="display: none;"
                     >
@@ -369,7 +432,7 @@
     </section>
     
     <!-- Footer -->
-    <footer class="border-t border-dark-border py-12 px-6 sm:px-8">
+    <footer class="border-t border-dark-border/50 py-12 px-6 sm:px-8 gradient-surface">
         <div class="max-w-6xl mx-auto">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
