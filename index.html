@@ -1,213 +1,574 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clorey</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #F5F7FA;
-      color: #2C3E50;
-    }
-
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
-  padding: 0 20px;
-}
-
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    .hero h1 {
-      font-size: 3em;
-      max-width: 800px;
-      color: #F5F7FA;
-    }
-    .content {
-      padding: 60px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.2em;
-      color: #2C3E50;
-    }
-    .content p {
-      color: #6C7A89;
-    }
-    .contact-form {
-      background-color: #ffffff;
-      padding: 60px 20px;
-      width: 100%;
-      margin: 0;
-      border-radius: 0;
-      color: #2C3E50;
-    }
-    .contact-form h2 {
-      text-align: center;
-      margin-top: 0;
-      color: #1E2A38;
-    }
-    .contact-form form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .contact-form label {
-      display: block;
-      margin: 15px 0 5px;
-      color: #2C3E50;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      font-size: 1em;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      color: #2C3E50;
-      background-color: #F5F7FA;
-    }
-    .contact-form button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      background-color: #4F8EF7;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .contact-form button:hover {
-      background-color: #3A6CD9;
-    }
-    .success-message {
-      text-align: center;
-      color: #27AE60;
-      font-weight: bold;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2em;
-      }
-      .content {
-        font-size: 1em;
-        padding: 40px 15px;
-      }
-      .contact-form {
-        padding: 40px 15px;
-      }
-    }
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 1.5em;
-      }
-      .contact-form input,
-      .contact-form textarea {
-        font-size: 0.9em;
-      }
-      .contact-form button {
-        font-size: 0.9em;
-      }
-    }
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
+    <!-- SEO Meta Tags -->
+    <title>Clorey - Your Technical Co-Founder | Fast MVP Development for Startups</title>
+    <meta name="description" content="Clorey builds fast, founder-quality MVPs for idea-stage startups. Get your technical co-founder and ship production-ready products in weeks, not quarters. Built by startup veterans.">
+    <meta name="keywords" content="technical co-founder, MVP development, startup development, idea stage startup, fast prototyping, startup CTO, product development, AI-accelerated development">
+    <meta name="author" content="Clorey">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://clorey.com">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Clorey - Your Technical Co-Founder | Fast MVP Development">
+    <meta property="og:description" content="You've got the idea. We'll build the product. Fast, founder-quality MVPs built by product-obsessed humans, accelerated by AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clorey.com">
+    <meta property="og:site_name" content="Clorey">
+    <meta property="og:image" content="https://clorey.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Clorey - Technical Co-Founder for Idea-Stage Startups">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Clorey - Your Technical Co-Founder | Fast MVP Development">
+    <meta name="twitter:description" content="You've got the idea. We'll build the product. Fast, founder-quality MVPs built by product-obsessed humans, accelerated by AI.">
+    <meta name="twitter:image" content="https://clorey.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="Clorey - Technical Co-Founder for Idea-Stage Startups">
+    <meta name="twitter:site" content="@clorey">
+    <meta name="twitter:creator" content="@clorey">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#6366f1">
+    <meta name="application-name" content="Clorey">
+    <meta name="apple-mobile-web-app-title" content="Clorey">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'clorey-primary': '#6366f1',
+                        'clorey-secondary': '#8b5cf6',
+                        'dark-bg': '#0a0a0a',
+                        'dark-surface': '#111111',
+                        'dark-border': '#1f1f1f',
+                        'dark-text': '#ffffff',
+                        'dark-text-secondary': '#a1a1aa',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-slow': 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 2s ease-in-out infinite',
+                        'rotate-slow': 'rotate 12s linear infinite',
+                        'drift': 'drift 8s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        drift: {
+                            '0%, 100%': { transform: 'translateX(0px) translateY(0px)' },
+                            '33%': { transform: 'translateX(20px) translateY(-10px)' },
+                            '66%': { transform: 'translateX(-10px) translateY(10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+        
+        .glow-strong {
+            box-shadow: 0 0 60px rgba(99, 102, 241, 0.25);
+        }
+        
+        .blur-backdrop {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .bg-dots {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .bg-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .gradient-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #111111 50%, #0a0a0a 100%);
+        }
+        
+        .gradient-surface {
+            background: linear-gradient(135deg, #111111 0%, #151515 50%, #111111 100%);
+        }
+        
+        .card-premium {
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.8) 0%, rgba(25, 25, 25, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+        
+        .card-premium:hover {
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(99, 102, 241, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            box-shadow: 
+                0 4px 15px rgba(99, 102, 241, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-premium:hover {
+            box-shadow: 
+                0 6px 25px rgba(99, 102, 241, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
-<section class="hero">
-  <video autoplay muted loop playsinline class="hero-video">
-<source src="https://nigel-t.github.io/clorey-landing/3196061-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <h1>Clorey is the technical co-founder for your idea-stage startup</h1>
-</section>
 
-  <section class="content">
-    <p>
-      You have a great idea that you want to build from 0 to 1, but how do you start?
-      <strong>Clorey</strong> is here to get you from 0 to 0.1. We will build the MVP of your product so you can
-      get customers, prove the model, attract talent, and raise capital.
-    </p>
-    <p>
-      Your product will be built by successful, product-obsessed founders and accelerated by AI, giving you a
-      customer-ready product that enables rapid iteration on your idea. All this at a fraction of the cost of
-      hiring a traditional agency—without compromising on quality or speed.
-    </p>
-  </section>
+<body class="bg-dark-bg text-dark-text overflow-x-hidden">
+    <!-- Enhanced Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <!-- Subtle grid pattern -->
+        <div class="absolute inset-0 bg-grid opacity-30"></div>
+    </div>
 
-  <section class="contact-form">
-    <h2>Let's Connect!</h2>
-    <form id="contactForm">
-      <label for="name">What's your name?</label>
-      <input type="text" id="name" name="name" required />
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-bg/90 blur-backdrop border-b border-dark-border/50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 animate-fade-in">
+                    <div class="w-8 h-8 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-lg glow flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">C</span>
+                    </div>
+                    <span class="text-xl font-semibold text-dark-text">Clorey</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 animate-fade-in">
+                    <a href="#why-clorey" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">Why Clorey</a>
+                    <a href="#how-it-works" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">How it Works</a>
+                    <a href="#who-its-for" class="text-dark-text-secondary hover:text-dark-text transition-all duration-300 hover:scale-105">Who It's For</a>
+                    <a href="#contact" class="btn-premium text-white px-4 py-2 rounded-lg transition-all duration-300">Get Started</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-dark-text-secondary hover:text-dark-text transition-colors duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-6 sm:px-8 pt-16">
+        <!-- Enhanced Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-clorey-primary/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-clorey-secondary/10 rounded-full blur-3xl animate-float" style="animation-delay: -3s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-2 h-32 bg-gradient-to-b from-clorey-primary/5 to-transparent transform -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
+        </div>
+        
+        <div class="relative max-w-6xl mx-auto text-center">
+            <!-- Main Headline -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 animate-slide-up">
+                <span class="gradient-text">Clorey</span> is the 
+                <br class="hidden sm:block">
+                <span class="text-dark-text">technical co-founder</span>
+                <br class="hidden sm:block">
+                for your <span class="gradient-text">idea-stage startup</span>
+            </h1>
+            
+            <!-- Subheadline -->
+            <p class="text-xl md:text-2xl text-dark-text-secondary mb-12 max-w-4xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                You&apos;ve got the idea. We&apos;ll build the product. Fast, founder-quality MVPs 
+                built by product-obsessed humans, accelerated by AI.
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.4s;">
+                <a href="#contact" class="btn-premium text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300">
+                    Start Building Today
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section class="py-24 px-6 sm:px-8 gradient-surface">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    From Zero to <span class="gradient-text">MVP, Fast</span>
+                </h2>
+                <div class="max-w-4xl mx-auto space-y-6 text-xl text-dark-text-secondary animate-slide-up" style="animation-delay: 0.2s;">
+                    <p>Clorey builds working products for ambitious founders at the idea stage.</p>
+                    <p>We don't do proposals, hourly billing, or bloated teams.</p>
+                    <p>We partner with you to deliver a focused, functional MVP—ready for customers, demos, and investors.</p>
+                </div>
+                <div class="relative mt-12 animate-slide-up" style="animation-delay: 0.4s;">
+                    <p class="text-2xl md:text-3xl font-semibold text-dark-text">
+                        We're not an agency. We're your <span class="gradient-text">technical co-founder</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Clorey Section -->
+    <section id="why-clorey" class="py-24 px-6 sm:px-8 gradient-section bg-dots">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    Why <span class="gradient-text">Clorey</span>?
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12">
+                    <div class="text-2xl mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-4">Product-first, not agency-first</h3>
+                    <p class="text-dark-text-secondary">We don&apos;t hand you off to project managers. We&apos;re founders, too. We build things we&apos;d want to use.</p>
+                </div>
+                
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.1s;">
+                    <div class="text-2xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-4">Ridiculously fast execution</h3>
+                    <p class="text-dark-text-secondary">We combine AI tooling with startup muscle memory to ship MVPs in weeks, not quarters.</p>
+                </div>
+                
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.2s;">
+                    <div class="text-2xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-4">Built by startup veterans</h3>
+                    <p class="text-dark-text-secondary">Your MVP is built by people who've raised capital, hired teams, and launched real companies—not just coded to spec.</p>
+                </div>
+                
+                <div class="card-premium rounded-xl p-8 transition-all duration-500 hover:scale-105 animate-slide-up accent-line pl-12" style="animation-delay: 0.3s;">
+                    <div class="text-2xl mb-4">🎨</div>
+                    <h3 class="text-xl font-semibold mb-4">Production-grade code and UI</h3>
+                    <p class="text-dark-text-secondary">No prototypes or throwaway code. We build real products with clean architecture and polished interfaces that scale with your business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 px-6 sm:px-8 gradient-surface">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    How It <span class="gradient-text">Works</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center animate-slide-up">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Share your vision</h3>
+                    <p class="text-dark-text-secondary">You tell us what you're trying to build—your idea, your goals, and what needs to be real to prove the concept.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">2</div>
+                    <h3 class="text-xl font-semibold mb-4">We scope your MVP</h3>
+                    <p class="text-dark-text-secondary">We distill the core of your idea into a lean, focused build. Enough to test, iterate, sell, and fundraise.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">3</div>
+                    <h3 class="text-xl font-semibold mb-4">We build—fast</h3>
+                    <p class="text-dark-text-secondary">We move fast and communicate like co-founders. Continuous check-ins and rapid iteration.</p>
+                </div>
+                
+                <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-16 h-16 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-6 glow-strong">4</div>
+                    <h3 class="text-xl font-semibold mb-4">You ship</h3>
+                    <p class="text-dark-text-secondary">In a few weeks, you have a working product. Put it in front of users, investors, or future teammates—your call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We're About Section -->
+    <section class="py-24 px-6 sm:px-8 gradient-section">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 animate-slide-up">
+                What We're <span class="gradient-text">About</span>
+            </h2>
+            <div class="space-y-6 text-xl text-dark-text-secondary animate-slide-up" style="animation-delay: 0.2s;">
+                <p>We believe MVPs should be fast, functional, and <em>real</em>.</p>
+                <p>Most great ideas die in the "who's going to build it?" phase. We started Clorey so that never happens again.</p>
+                <p>We've shipped venture-backed products. We've been CTOs and CEOs. We know what matters and what doesn't at the earliest stage—and we've built Clorey to obsess over that.</p>
+            </div>
+        </div>
+    </section>
+   
+    <section id="who-its-for" class="py-24 px-6 sm:px-8 gradient-surface bg-dots">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                    Who This Is <span class="gradient-text">For</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
+                        <span class="text-green-400 text-xl">🚀</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Founders raising a pre-seed or angel round</h3>
+                </div>
+                
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
+                        <span class="text-green-400 text-xl">🌐</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Serial entrepreneurs with strong networks but no in-house tech team</h3>
+                </div>
+                
+                <div class="card-premium rounded-xl p-8 text-center transition-all duration-500 hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mx-auto mb-4 border border-green-500/20">
+                        <span class="text-green-400 text-xl">💡</span>
+                    </div>
+                    <h3 class="text-lg font-semibold">Operators with a proven playbook and a fresh idea</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ready to Build Section -->
+    <section id="contact" class="py-24 px-6 sm:px-8 gradient-section">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-slide-up">
+                Ready to <span class="gradient-text">Build</span>?
+            </h2>
+            <p class="text-xl text-dark-text-secondary mb-12 animate-slide-up" style="animation-delay: 0.2s;">
+                Let's talk. We'll give you a clear scope, fixed timeline, and honest opinion—fast.
+            </p>
+            
+            <!-- Contact form -->
+            <div class="max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+                <form id="contactForm" class="space-y-6">
+                    <div class="text-left">
+                        <label for="name" class="block text-sm font-medium text-dark-text mb-2">What's your name?</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border"
+                            placeholder="Your name"
+                        />
+                    </div>
 
-      <label for="email">How can we reach you (email)?</label>
-      <input type="email" id="email" name="email" required />
+                    <div class="text-left">
+                        <label for="email" class="block text-sm font-medium text-dark-text mb-2">How can we reach you (email)?</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border"
+                            placeholder="your@email.com"
+                        />
+                    </div>
 
-      <label for="message">Tell us about your project!</label>
-      <textarea id="message" name="message" rows="6" required></textarea>
+                    <div class="text-left">
+                        <label for="message" class="block text-sm font-medium text-dark-text mb-2">Tell us about your project!</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="6" 
+                            required 
+                            class="w-full px-4 py-3 bg-dark-surface/50 backdrop-blur border border-dark-border/50 rounded-lg text-dark-text placeholder-dark-text-secondary focus:border-clorey-primary focus:ring-1 focus:ring-clorey-primary focus:outline-none transition-all duration-300 hover:border-dark-border resize-none"
+                            placeholder="Tell us about your idea, timeline, and what you're hoping to build..."
+                        ></textarea>
+                    </div>
 
-      <button type="submit">Get In Touch</button>
-      <div class="success-message" id="successMessage" style="display: none;">Thank you! Your message has been sent.</div>
-    </form>
-  </section>
+                    <button 
+                        type="submit" 
+                        class="w-full btn-premium text-white px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300"
+                    >
+                        Get In Touch
+                    </button>
+                    
+                    <div 
+                        class="success-message bg-green-500/10 border border-green-500/20 rounded-lg p-6 text-green-400 text-center backdrop-blur" 
+                        id="successMessage" 
+                        style="display: none;"
+                    >
+                        Thank you! Your message has been sent.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border/50 py-12 px-6 sm:px-8 gradient-surface">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-6 h-6 bg-gradient-to-br from-clorey-primary to-clorey-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xs">C</span>
+                    </div>
+                    <span class="text-lg font-semibold">Clorey</span>
+                </div>
+                <p class="text-dark-text-secondary text-sm">
+                    © 2024 Clorey. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Contact Form Script -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
+            // Add loading state to button
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
 
-<script>
-  document.getElementById('contactForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+            try {
+                const response = await fetch('https://formspree.io/f/xgvkgrba', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, message })
+                });
 
-    try {
-      const response = await fetch('https://formspree.io/f/xgvkgrba', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, email, message })
-      });
+                if (response.ok) {
+                    // Trigger confetti
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
 
-      if (response.ok) {
-        // Trigger confetti
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 }
+                    // Update success message text and show it
+                    const successMessage = document.getElementById('successMessage');
+                    successMessage.textContent = "Awesome! We can't wait to get started. We'll get back to you shortly.";
+                    successMessage.style.display = 'block';
+
+                    // Reset form
+                    this.reset();
+                } else {
+                    alert('There was an issue sending your message. Please try again later.');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            } finally {
+                // Reset button state
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
         });
+    </script>
 
-        // Update success message text and show it
-        const successMessage = document.getElementById('successMessage');
-        successMessage.textContent = "Awesome! We can't wait to get started. We'll get back to you shortly.";
-        successMessage.style.display = 'block';
-
-        // Hide the form inputs and button for a cleaner look
-       // this.querySelectorAll('input, textarea, button').forEach(el => el.style.display = 'none');
-      } else {
-        alert('There was an issue sending your message. Please try again later.');
-      }
-    } catch (error) {
-      alert('Error: ' + error.message);
-    }
-  });
-</script>
+    <!-- Smooth scrolling script -->
+    <script>
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
 </body>
-</html>
+</html> 
